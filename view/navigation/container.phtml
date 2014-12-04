@@ -1,0 +1,25 @@
+<?php
+
+/* 
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+$container = $this->container;
+
+echo '<ul id="nav1">';
+// loop root level (only has Home, but later may have an Admin root page?)
+foreach ($container as $page) {
+    // check if it is active (not recursive)
+    $isActive = $page->isActive(false);
+    $liClass = $isActive ? ' class="active"' : '';
+    echo '<li ' . $liClass . '>' . $page->getLabel() . '</li>', PHP_EOL;
+    // loop next level
+    foreach ($page as $page) {
+        // check if it is active (recursive)
+        $isActive = $page->isActive(true);
+        $liClass = $isActive ? ' class="active"' : '';
+        echo '<li ' . $liClass . '>' . $page->getLabel() . '</li>', PHP_EOL;
+    }
+}
+echo '</ul>';
