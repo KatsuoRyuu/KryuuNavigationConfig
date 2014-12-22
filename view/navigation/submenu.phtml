@@ -1,17 +1,7 @@
 <?php
-
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/* @var $container Zend\Navigation\Navigation */
-$container = $this->container;
-$navClass = $this->navigation()->menu()->getUlClass();
-
+$menuStack = 'sub-' . $menuStack;
 ?>
- <ul class="nav navbar-nav <?php $navClass ?>">
+<ul class="dropdown-menu <?php echo $menuStack; ?>">
     <?php
     foreach ($container as $page):
         if (!$this->navigation()->accept($page)) {
@@ -52,9 +42,9 @@ $navClass = $this->navigation()->menu()->getUlClass();
                             <span class="<?php echo $icon; ?>"></span>
                         <?php endif; ?>
                         <?php echo $page->getLabel() ?>
-                        <b class="caret"></b>
+                        <b class="glyphicon-circle-arrow-right"></b>
                     </a>
-                    <?php echo $this->partial('navigation/menu',array('container' => $page->getPages())); ?>
+                    <?php echo $this->partial('navigation/submenu',array('container' => $page->getPages(), 'menuStack' => $menuStack)); ?>
                     
                 </li>   
             <?php endif; ?>

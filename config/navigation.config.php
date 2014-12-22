@@ -39,4 +39,33 @@ namespace KryuuNavigationConfig;
  * @link https://github.com/KatsuoRyuu/
  */
 
-return array();
+return array(    
+    'default' => array(
+        array(
+            'label' => 'Navigat Test',
+            'route' => 'test',
+            'params'=> array('layout'=>1),
+            'pages' => array(
+                array(
+                    'label' => 'Dropdown 1',
+                    'route' => 'test',
+                    'params'=> array('layout'=>2),
+                    'pages' => array(
+                        array(
+                            'label' => 'Dropdown 2',
+                            'route' => 'test',
+                            'params'=> array('layout'=>3),
+                            'pages' => array(
+                                array(
+                                    'label' => 'Dropdown 3',
+                                    'route' => 'test',
+                                    'params'=> array('layout'=>4),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+            ),
+        ),
+    ),
+);

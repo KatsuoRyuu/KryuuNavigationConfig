@@ -61,7 +61,8 @@ return array(
     'view_manager' => array(
         'template_map' => array(
             'navigation/container'      => __DIR__ . '/../view/navigation/container.phtml',
-            'navigation/item'           => __DIR__ . '/../view/navigation/item.phtml',
+            'navigation/menu'           => __DIR__ . '/../view/navigation/menu.phtml',
+            'navigation/submenu'           => __DIR__ . '/../view/navigation/submenu.phtml',
         ),
     ),
 );
