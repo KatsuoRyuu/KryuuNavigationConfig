@@ -42,7 +42,7 @@ $menuStack = 'menu';
                             <span class="<?php echo $icon; ?>"></span>
                         <?php endif; ?>
                         <?php echo $page->getLabel() ?>
-                        <b class="glyphicon-circle-arrow-right"></b>
+                        <b class="glyphicon glyphicon-arrow-right"></b>
                     </a>
                     <?php echo $this->partial('navigation/submenu',array('container' => $page->getPages(), 'menuStack' => $menuStack)); ?>
                     

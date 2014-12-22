@@ -43,10 +43,10 @@ defined('__AUTHORIZE__') or define('__AUTHORIZE__','bjyauthorize');
 
 $mainRoute = 'kryuu-navigation-config';
 
-$router     = require_once(__DIR__.'/router.config.php');
-$service    = require_once(__DIR__.'/services.config.php');
-$authorize  = require_once(__DIR__.'/authorize.config.php');
-$navigation = require_once(__DIR__.'/navigation.config.php');
+$router     = require_once(__DIR__ . '/router.config.php');
+$service    = require_once(__DIR__ . '/services.config.php');
+$authorize  = require_once(__DIR__ . '/authorize.config.php');
+$navigation = require_once(__DIR__ . '/navigation.config.php');
 
 return array(
     
@@ -60,9 +60,10 @@ return array(
     
     'view_manager' => array(
         'template_map' => array(
+            'navigation/default'        => __DIR__ . '/../view/navigation/container.phtml',
             'navigation/container'      => __DIR__ . '/../view/navigation/container.phtml',
             'navigation/menu'           => __DIR__ . '/../view/navigation/menu.phtml',
-            'navigation/submenu'           => __DIR__ . '/../view/navigation/submenu.phtml',
+            'navigation/submenu'        => __DIR__ . '/../view/navigation/submenu.phtml',
         ),
     ),
 );

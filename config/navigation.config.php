@@ -39,7 +39,7 @@ namespace KryuuNavigationConfig;
  * @link https://github.com/KatsuoRyuu/
  */
 
-return array(    
+return array(
     'default' => array(
         array(
             'label' => 'Navigat Test',
