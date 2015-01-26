@@ -57,8 +57,10 @@ return array(
                             'params'=> array('layout'=>3),
                             'pages' => array(
                                 array(
-                                    'label' => 'Dropdown 3',
+                                    'label' => 'Pants',
                                     'route' => 'test',
+									'resource'=> 'pants',
+									'privilege'=>'wear',
                                     'params'=> array('layout'=>4),
                                 ),
                             ),

@@ -41,6 +41,6 @@ namespace KryuuNavigationConfig;
 
 return array(
     'factories' => array(
-        'navigation' => 'Zend\Navigation\Service\DefaultNavigationFactory',
+        //'navigation' => 'Zend\Navigation\Service\DefaultNavigationFactory',
     ),
 );

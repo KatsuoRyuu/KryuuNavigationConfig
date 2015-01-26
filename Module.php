@@ -11,6 +11,10 @@ namespace KryuuNavigationConfig;
  */
 
 use Zend\Mvc\MvcEvent;
+use Zend\View\HelperPluginManager;
+use Zend\Permissions\Acl\Acl;
+use Zend\Permissions\Acl\Role\GenericRole;
+use Zend\Permissions\Acl\Resource\GenericResource;
 
 class Module
 {
@@ -34,4 +38,26 @@ class Module
             ),
         );
     }
+	public function getViewHelperConfig()
+	{
+		return array(
+			'factories' => array(
+				// This will overwrite the native navigation helper
+				'navigation' => function(HelperPluginManager $pm) {
+					$sm = $pm->getServiceLocator();
+					$authorize = $sm->get('BjyAuthorizeServiceAuthorize');
+					$acl = $authorize->getAcl();
+					$role = $authorize->getIdentity();
+					// Get an instance of the proxy helper
+					$navigation = $pm->get('Zend\View\Helper\Navigation');
+					// Store ACL and role in the proxy helper:
+					$navigation->setAcl($acl)
+							->setRole($role);
+					// Return the new navigation helper instance
+					return $navigation;
+				}
+			)
+		);
+	}
+
 }
